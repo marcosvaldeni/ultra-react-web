@@ -1,9 +1,12 @@
 import React from 'react';
 
+import Navbar from './components/Navbar/Navbar';
+
+
 const App = () => {
   return (
     <>
-      <h1>Ultra</h1>
+      <Navbar />
     </>
   );
 }
