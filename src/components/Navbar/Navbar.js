@@ -1,13 +1,23 @@
 import React from 'react';
 
-import { Nav, NavbarContainer } from './styles';
+import { 
+  Nav, 
+  NavbarContainer, 
+  NavLogo, 
+  NavIcon 
+} from './styles';
 
 const Navbar = () => {
   return (
     <>
+
       <Nav>
         <NavbarContainer>
-          <h1>Ultra</h1>
+          <NavLogo to="/">
+            <NavIcon />
+            Ultra
+          </NavLogo>
+         
         </NavbarContainer>
       </Nav>
 
