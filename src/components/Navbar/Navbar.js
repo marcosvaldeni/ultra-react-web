@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 
+import { Button } from '../../styles/global';
 import { 
   Nav, 
   NavbarContainer, 
@@ -10,13 +11,30 @@ import {
   MobileIcon,
   NavLinks,
   NavItem,
-  NavMenu
+  NavMenu,
+  NavItemBtn,
+  NavBtnLink,
 } from './styles';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
+
+  const showBotton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  }
+
+  useEffect(() => {
+    showBotton();
+  }, []);
+
+  window.addEventListener('resize', showBotton);
 
   return (
     <>
@@ -43,6 +61,20 @@ const Navbar = () => {
             <NavItem>
               <NavLinks to='/'>Products</NavLinks>
             </NavItem>
+
+            <NavItemBtn>
+              {button ? (
+                <NavBtnLink to="/sign-up">
+                  <Button primary>SIGN UP</Button>
+                </NavBtnLink>
+              ) : (
+                <NavBtnLink to='sign-up'>
+                  <Button fontBig primary>
+                    SIGN UP
+                  </Button>
+                </NavBtnLink>
+              )}
+            </NavItemBtn>
           </NavMenu>
 
         </NavbarContainer>
