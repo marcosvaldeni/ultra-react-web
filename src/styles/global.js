@@ -20,7 +20,6 @@ export default createGlobalStyle`
 `;
 
 export const Container = styled.div`
-  background: red;
   z-index: 11;
   width: 100%;
   max-width: 1300px;
